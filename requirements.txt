@@ -4,10 +4,10 @@ dvc
 ruff
 codecarbon
 pytest
-pynblint
 bandit
 mypy
 deepchecks
+dagshub
 
 #DDPM tools
 absl-py==1.1.0

@@ -1,1 +1,5 @@
 venv
+outputs/*
+mlruns
+**/__pycache__/
+*.pyc
