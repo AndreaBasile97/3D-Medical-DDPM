@@ -1,0 +1,3 @@
+defaults:
+  - dataset: bvFTD
+  - model: 3d_ddpm

@@ -10,15 +10,16 @@ import random
 # NCCL_P2P_DISABLE=1 accelerate launch train/train_ddpm.py
 
 
-@hydra.main(config_path="../config", config_name="base_cfg", version_base=None)
+@hydra.main(config_path="../../config", config_name="base_cfg", version_base=None)
 def run(cfg: DictConfig):
-    torch.cuda.set_device(cfg.model.gpus)
-    print(f"Using dataset from: {cfg.dataset.path}")
-    print(f"Batch size: {cfg.dataset.batch_size}")
-    print(
-        f"Model configuration: {cfg.model.hidden_layers} hidden layers, "
-        f"{cfg.model.hidden_units} units per layer, learning rate: {cfg.model.learning_rate}"
-    )
+    print(torch.cuda.is_available())
+    # torch.cuda.set_device(cfg.model.gpus)
+    print(f"Using dataset from: {cfg.dataset.root_dir}")
+    print(f"Batch size: {cfg.model.batch_size}")
+    # print(
+    #     f"Model configuration: {cfg.model.hidden_layers} hidden layers, "
+    #     f"{cfg.model.hidden_units} units per layer, learning rate: {cfg.model.learning_rate}"
+    # )
 
     epochs = 5  # Numero di epoche di addestramento
 

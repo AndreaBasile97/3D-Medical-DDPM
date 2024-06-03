@@ -4,7 +4,13 @@
 
 **Email**: andreabasile97@gmail.com
 
-**Version**: Enter the project version
+**Version**: 0.0
+
+## Technical requirements before installing
+
+This project needs C++ v.14.0.0 or greater and 
+Python 3.8
+cuda 12.1
 
 DDPM for 3D medical image synthesis
 
