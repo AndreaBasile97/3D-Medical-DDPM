@@ -1,6 +1,5 @@
 # MLOps tools
 mlflow
-dvc
 ruff
 codecarbon
 pytest
@@ -8,6 +7,7 @@ bandit
 mypy
 deepchecks
 dagshub
+nextflow
 
 #DDPM tools
 absl-py==1.1.0
@@ -66,7 +66,7 @@ pyasn1-modules==0.2.8
 pycodestyle==2.8.0
 pyDeprecate==0.3.1
 pydicom==2.3.0
-pytorch-lightning==1.6.4
+pytorch-lightning==2.2.5
 pytz==2022.1
 PyWavelets==1.3.0
 PyYAML==6.0
