@@ -18,3 +18,7 @@ stages:
       hash: md5
       md5: b77a3e66225b96bddd4a1c544f54101f
       size: 549615051
+    - path: src/features/preprocess.py
+      hash: md5
+      md5: 37e646cbc0781b170824b1bb1ecc5471
+      size: 588
