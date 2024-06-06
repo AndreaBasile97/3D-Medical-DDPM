@@ -1,6 +1,8 @@
 stages:
   fetching_scans:
     cmd: python src/data/download_dataset.py
+    deps:
+      - src/data/download_dataset.py
 
   processing:
     cmd: python src/features/preprocess.py

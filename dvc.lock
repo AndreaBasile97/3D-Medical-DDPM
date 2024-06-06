@@ -2,6 +2,11 @@ schema: '2.0'
 stages:
   fetching_scans:
     cmd: python src/data/download_dataset.py
+    deps:
+    - path: src/data/download_dataset.py
+      hash: md5
+      md5: c5a8a8577e3cb30017239351b67c4d6c
+      size: 611
   processing:
     cmd: python src/features/preprocess.py
     deps:
