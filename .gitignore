@@ -3,3 +3,4 @@ outputs/*
 mlruns
 **/__pycache__/
 *.pyc
+data/raw
