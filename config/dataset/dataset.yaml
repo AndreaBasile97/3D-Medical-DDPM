@@ -4,4 +4,5 @@ download_url_HC: yyy
 raw_dir_bvFTD: /data/raw/bvFTD_T1/
 raw_dir_HC: /data/raw/HC_T1/
 
-processed_dir: /data/processed/
+bvFTD_processed_dir: /data/processed/bvFTD_T1
+HC_processed_dir: /data/processed/HC_T1
