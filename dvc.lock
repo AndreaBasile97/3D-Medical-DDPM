@@ -1,7 +1,6 @@
+schema: '2.0'
 stages:
   fetching_scans:
     cmd: python -m src.data.download_dataset
-    
-
   processing:
     cmd: python -m src.features.preprocess

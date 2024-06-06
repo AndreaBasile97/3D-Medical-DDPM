@@ -1,0 +1,7 @@
+download_url_bvFTD: xxx
+download_url_HC: yyy
+
+raw_dir_bvFTD: /data/raw/bvFTD_T1/
+raw_dir_HC: /data/raw/HC_T1/
+
+processed_dir: /data/processed/

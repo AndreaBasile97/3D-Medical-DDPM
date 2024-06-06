@@ -1,5 +1,3 @@
 defaults:
-  - bvFTD_dataset: bvFTD
-  - HC_dataset: HC
-  - processed_dataset: processed
+  - dataset: dataset
   - model: 3d_ddpm
