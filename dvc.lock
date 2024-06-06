@@ -22,3 +22,10 @@ stages:
       hash: md5
       md5: 37e646cbc0781b170824b1bb1ecc5471
       size: 588
+  training:
+    cmd: python src/train/train.py
+    deps:
+    - path: src/train/train.py
+      hash: md5
+      md5: 6cd593034f83c56fb1b2df168bbbc1a8
+      size: 2639

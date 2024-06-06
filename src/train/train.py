@@ -24,7 +24,7 @@ def run(cfg: DictConfig):
     else:
         print("CUDA is not available. Using CPU.")
 
-    print(f"Using dataset from: {cfg.dataset.root_dir}")
+    print(f"Using dataset from: {cfg.dataset.download_url_bvFTD}")
     print(f"Batch size: {cfg.model.batch_size}")
     # print(
     #     f"Model configuration: {cfg.model.hidden_layers} hidden layers, "
