@@ -22,9 +22,7 @@ DDPM for 3D medical image synthesis
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 ├── docs               <- Directory for documentation.
-├── example            <- Directory for test scripts and src.
 ├── models             <- Trained and serialized models, model predictions, or model summaries.
-├── notebooks          <- Directory with Jupyter notebooks.
 ├── references         <- Directory containing project references.
 ├── reports            <- Generated HTML, PDF, LaTeX, etc. reports.
 │   └── figures        <- Graphs and figures generated to use in reports.

@@ -1,6 +1,6 @@
 from re import I
-from ddpm import Unet3D, GaussianDiffusion, Trainer
-from dataset import MRNetDataset, BRATSDataset
+from src.models.ddpm import Unet3D, GaussianDiffusion, Trainer
+from src.data import bvFTDDataset
 import argparse
 import wandb
 import hydra
@@ -8,29 +8,31 @@ from omegaconf import DictConfig, OmegaConf, open_dict
 from train.get_dataset import get_dataset
 import torch
 import os
-from ddpm.unet import UNet
+from src.models.ddpm.unet import UNet
 
 
 # NCCL_P2P_DISABLE=1 accelerate launch train/train_ddpm.py
 
-@hydra.main(config_path='../config', config_name='base_cfg', version_base=None)
+
+@hydra.main(config_path="../config", config_name="base_cfg", version_base=None)
 def run(cfg: DictConfig):
     torch.cuda.set_device(cfg.model.gpus)
     with open_dict(cfg):
         cfg.model.results_folder = os.path.join(
-            cfg.model.results_folder, cfg.dataset.name, cfg.model.results_folder_postfix)
+            cfg.model.results_folder, cfg.dataset.name, cfg.model.results_folder_postfix
+        )
 
-    if cfg.model.denoising_fn == 'Unet3D':
+    if cfg.model.denoising_fn == "Unet3D":
         model = Unet3D(
             dim=cfg.model.diffusion_img_size,
             dim_mults=cfg.model.dim_mults,
             channels=cfg.model.diffusion_num_channels,
         ).cuda()
-    elif cfg.model.denoising_fn == 'UNet':
+    elif cfg.model.denoising_fn == "UNet":
         model = UNet(
             in_ch=cfg.model.diffusion_num_channels,
             out_ch=cfg.model.diffusion_num_channels,
-            spatial_dims=3
+            spatial_dims=3,
         ).cuda()
     else:
         raise ValueError(f"Model {cfg.model.denoising_fn} doesn't exist")
@@ -72,7 +74,7 @@ def run(cfg: DictConfig):
     trainer.train()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
 
     # wandb.finish()
