@@ -13,6 +13,7 @@ from src.models.diffusion_model.unet import create_model
 from src.data.dataset import NiftiImageGenerator, NiftiPairImageGenerator
 import argparse
 import torch
+import mlflow
 
 import os
 
@@ -123,19 +124,36 @@ if len(resume_weight) > 0:
     diffusion.load_state_dict(weight["ema"])
     print("Model Loaded!")
 
-trainer = Trainer(
-    diffusion,
-    dataset,
-    image_size=input_size,
-    depth_size=depth_size,
-    train_batch_size=args.batchsize,
-    train_lr=train_lr,
-    train_num_steps=args.epochs,  # total training steps
-    gradient_accumulate_every=2,  # gradient accumulation steps
-    ema_decay=0.995,  # exponential moving average decay
-    fp16=False,  # True,                       # turn on mixed precision training with apex
-    with_condition=with_condition,
-    save_and_sample_every=save_and_sample_every,
-)
 
-trainer.train()
+with mlflow.start_run():
+    # Log parameters
+    mlflow.log_param("input_size", input_size)
+    mlflow.log_param("depth_size", depth_size)
+    mlflow.log_param("num_channels", num_channels)
+    mlflow.log_param("num_res_blocks", num_res_blocks)
+    mlflow.log_param("num_class_labels", num_class_labels)
+    mlflow.log_param("train_lr", train_lr)
+    mlflow.log_param("batchsize", args.batchsize)
+    mlflow.log_param("epochs", args.epochs)
+    mlflow.log_param("timesteps", args.timesteps)
+    mlflow.log_param("save_and_sample_every", save_and_sample_every)
+    mlflow.log_param("with_condition", with_condition)
+
+    trainer = Trainer(
+        diffusion,
+        dataset,
+        image_size=input_size,
+        depth_size=depth_size,
+        train_batch_size=args.batchsize,
+        train_lr=train_lr,
+        train_num_steps=args.epochs,  # total training steps
+        gradient_accumulate_every=2,  # gradient accumulation steps
+        ema_decay=0.995,  # exponential moving average decay
+        fp16=False,  # True,                       # turn on mixed precision training with apex
+        with_condition=with_condition,
+        save_and_sample_every=save_and_sample_every,
+    )
+
+    trainer.train()
+
+    mlflow.pytorch.log_model(model, "model")
