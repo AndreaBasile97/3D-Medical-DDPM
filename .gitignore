@@ -1,7 +1,9 @@
-venv
+.venv
 outputs/*
 mlruns
 **/__pycache__/
 *.pyc
 data/raw
 *.pt
+*.deb*
+scripts/logs/*
