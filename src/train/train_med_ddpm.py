@@ -8,8 +8,8 @@ from torchvision.transforms import (
     ToTensor,
     Lambda,
 )
-from diffusion_model.trainer import GaussianDiffusion, Trainer
-from diffusion_model.unet import create_model
+from src.models.diffusion_model.trainer import GaussianDiffusion, Trainer
+from src.models.diffusion_model.unet import create_model
 from src.data.dataset import NiftiImageGenerator, NiftiPairImageGenerator
 import argparse
 import torch

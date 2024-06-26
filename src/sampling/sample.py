@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
-from diffusion_model.trainer import GaussianDiffusion, num_to_groups
-from diffusion_model.trainer import GaussianDiffusion, Trainer
-from diffusion_model.unet import create_model
+from src.models.diffusion_model.trainer import GaussianDiffusion, num_to_groups
+from src.models.diffusion_model.trainer import GaussianDiffusion, Trainer
+from src.models.diffusion_model.unet import create_model
 from torchvision.transforms import Compose, Lambda
 from utils.dtypes import LabelEnum
 import nibabel as nib
