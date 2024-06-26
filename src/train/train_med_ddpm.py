@@ -10,7 +10,7 @@ from torchvision.transforms import (
 )
 from diffusion_model.trainer import GaussianDiffusion, Trainer
 from diffusion_model.unet import create_model
-from data.dataset import NiftiImageGenerator, NiftiPairImageGenerator
+from src.data.dataset import NiftiImageGenerator, NiftiPairImageGenerator
 import argparse
 import torch
 
