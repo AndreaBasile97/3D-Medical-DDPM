@@ -10,11 +10,11 @@ stages:
   processing:
     cmd: python src/features/preprocess.py
     deps:
-    - path: data/raw/HC_T1.zip
+    - path: data/raw/bvFTD/HC_T1.zip
       hash: md5
       md5: 31a2b511e5b5f487de18cabfc1b181dd
       size: 1202626154
-    - path: data/raw/bvFTD_T1.zip
+    - path: data/raw/bvFTD/bvFTD_T1.zip
       hash: md5
       md5: b77a3e66225b96bddd4a1c544f54101f
       size: 549615051

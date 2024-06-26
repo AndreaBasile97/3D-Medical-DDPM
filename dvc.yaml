@@ -8,8 +8,8 @@ stages:
     cmd: python src/features/preprocess.py
     deps:
     - src/features/preprocess.py
-    - data/raw/bvFTD_T1.zip
-    - data/raw/HC_T1.zip
+    - data/raw/bvFTD/bvFTD_T1.zip
+    - data/raw/bvFTD/HC_T1.zip
 
   training:
     cmd: python src/train/train.py
