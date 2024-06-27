@@ -8,3 +8,4 @@ data/raw
 *.deb*
 scripts/logs/*
 .vscode
+logs/*
