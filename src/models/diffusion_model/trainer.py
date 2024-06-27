@@ -19,6 +19,7 @@ import nibabel as nib
 import numpy as np
 from tqdm import tqdm
 from einops import rearrange
+import mlflow
 from torch.utils.tensorboard import SummaryWriter
 import datetime
 import time
@@ -397,7 +398,9 @@ class Trainer(object):
             # Record here
             average_loss = np.mean(accumulated_loss)
             end_time = time.time()
+
             self.writer.add_scalar("training_loss", average_loss, self.step)
+            mlflow.log_metric("training_loss", average_loss, step=self.step)
 
             self.opt.step()
             self.opt.zero_grad()
@@ -427,6 +430,9 @@ class Trainer(object):
 
             self.step += 1
 
+        mlflow.pytorch.log_model(self.model, "model")  # Log your PyTorch model
+        mlflow.end_run()  # End the MLflow run
+        
         print('training completed')
         end_time = time.time()
         execution_time = (end_time - start_time)/3600
