@@ -96,7 +96,7 @@ diffusion = GaussianDiffusion(
     with_condition=True,
 ).cuda()
 diffusion.load_state_dict(torch.load(weightfile)["ema"])
-print("Model Loaded!")
+print("Model Weights Loaded")
 
 # +
 img_dir = exportfolder + "/image"
